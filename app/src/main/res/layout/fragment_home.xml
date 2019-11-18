@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_choose_button"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/tv_submit_error"
+            android:text="记 错 题"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:background="@drawable/shape_home_error"
+            android:textColor="@color/colorWhite"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/tv_submit_true_answer"
+            android:text="记 正 确 答 案"
+            android:textSize="30dp"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/shape_home_answer"
+            android:textColor="@color/colorWhite"
+            android:layout_below="@id/tv_submit_error"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_error"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:id="@+id/rl_error_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_close_error"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignBottom="@id/tv_error_title"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/back" />
+
+                    <TextView
+                        android:id="@+id/tv_error_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="记错题"
+                        android:textSize="16dp"
+                        android:textColor="@color/colorBlack"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/colorLine" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_error_content_title"
+                    android:text="错题题目："
+                    android:layout_below="@id/rl_error_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:id="@+id/et_error_content_title"
+                    android:layout_below="@id/tv_error_content_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_user_edit"
+                    android:hint="请输入错题题目（必填）"
+                    android:textColorHint="@color/colorLine"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_error_content_type"
+                    android:text="错题科目："
+                    android:layout_below="@id/et_error_content_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:id="@+id/tv_error_content_type_content"
+                    android:layout_below="@id/tv_error_content_type"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_user_edit"
+                    android:hint="请选择错题科目（必填）"
+                    android:textColorHint="@color/colorLine"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_error_content_image"
+                    android:text="错题照片："
+                    android:layout_below="@id/tv_error_content_type_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_error_content_image"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/shape_user_button"
+                    android:text="提 交"
+                    android:textSize="15dp"
+                    android:id="@+id/tv_submit"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_below="@id/rv_submit"
+                    android:layout_marginTop="20dp"/>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rl_answer"
+        android:visibility="gone">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/rl_answer_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/colorWhite">
+
+                    <ImageView
+                        android:id="@+id/iv_close_answer"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignBottom="@id/tv_answer_title"
+                        android:layout_marginLeft="10dp"
+                        android:background="@mipmap/back" />
+
+                    <TextView
+                        android:id="@+id/tv_answer_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:text="记正确答案"
+                        android:textSize="16dp"
+                        android:textColor="@color/colorBlack"/>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="@color/colorLine" />
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_answer_content_title"
+                    android:text="正确答案："
+                    android:layout_below="@id/rl_answer_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="100dp"
+                    android:id="@+id/et_answer_content_title"
+                    android:layout_below="@id/tv_answer_content_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_user_edit"
+                    android:hint="请输入错题题目（必填）"
+                    android:textColorHint="@color/colorLine"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_answer_content_type"
+                    android:text="错题题目："
+                    android:layout_below="@id/et_answer_content_title"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="50dp"
+                    android:id="@+id/tv_answer_content_type_content"
+                    android:layout_below="@id/tv_answer_content_type"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_user_edit"
+                    android:hint="请选择错题题目（必填）"
+                    android:textColorHint="@color/colorLine"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tv_answer_content_image"
+                    android:text="正确答案照片："
+                    android:layout_below="@id/tv_answer_content_type_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="10dp"
+                    android:textSize="12dp"
+                    android:textColor="@color/colorLine"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_submit_answer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_answer_content_image"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="20dp"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/shape_user_button"
+                    android:text="提 交"
+                    android:textSize="15dp"
+                    android:id="@+id/tv_submit_answer"
+                    android:gravity="center"
+                    android:textColor="@color/colorWhite"
+                    android:textStyle="bold"
+                    android:layout_below="@id/rv_submit_answer"
+                    android:layout_marginTop="20dp"/>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</RelativeLayout>

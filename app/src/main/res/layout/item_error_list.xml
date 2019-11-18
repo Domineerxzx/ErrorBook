@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/tv_error_title_title"
+        android:textSize="12dp"
+        android:gravity="center"
+        android:text="题目编号："
+        android:textColor="@color/colorLine" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/tv_error_title_id"
+        android:gravity="center"
+        android:textSize="12dp"
+        android:text="1111"
+        android:layout_toRightOf="@id/tv_error_title_title"
+        android:textColor="@color/colorLine" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_error_title"
+        android:textSize="15dp"
+        android:text="1111"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/tv_error_title_title"
+        android:textColor="@color/colorBlack" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv_error_list"
+        android:layout_below="@id/tv_error_title"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:id="@+id/iv_collect"
+        android:layout_alignParentRight="true"
+        android:background="@mipmap/collection"/>
+
+</RelativeLayout>

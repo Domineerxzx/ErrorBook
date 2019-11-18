@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">温故知新</string>
+    <string name="nicknameDefault">点击  登录/注册</string>
+    <string name="usernameDefault">暂无登录信息</string>
+</resources>
