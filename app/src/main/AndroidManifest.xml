@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.domineer.triplebro.mistakebook">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -12,25 +13,27 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.ErrorActivity"/>
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.ErrorWriteActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.ErrorInfoActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.ErrorListActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.SplashActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".activities.ErrorDetailActivity"></activity>
+        <activity android:name=".activities.ErrorActivity" />
+        <activity android:name=".activities.ErrorWriteActivity" />
+        <activity android:name=".activities.ErrorInfoActivity" />
+        <activity android:name=".activities.ErrorListActivity" />
+        <activity android:name=".activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.AdminManagerActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.RegisterActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.AboutUsActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.CollectActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.LoginActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.SettingActivity" />
-        <activity android:name="com.domineer.triplebro.mistakebook.activities.MainActivity" />
+        <activity android:name=".activities.AdminManagerActivity" />
+        <activity android:name=".activities.RegisterActivity" />
+        <activity android:name=".activities.AboutUsActivity" />
+        <activity android:name=".activities.CollectActivity" />
+        <activity android:name=".activities.LoginActivity" />
+        <activity android:name=".activities.SettingActivity" />
+        <activity android:name=".activities.MainActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -42,7 +45,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <service android:name="com.domineer.triplebro.mistakebook.services.NetworkConnectionService" />
+        <service android:name=".services.NetworkConnectionService" />
     </application>
 
 </manifest>

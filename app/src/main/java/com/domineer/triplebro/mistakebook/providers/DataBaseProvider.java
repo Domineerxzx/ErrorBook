@@ -281,9 +281,10 @@ public class DataBaseProvider implements DataProvider {
         for (int user_id : userIdList) {
             Cursor errorInfoCursor = db.query("errorInfo", null, "user_id = ?", new String[]{String.valueOf(user_id)}, null, null, "_id ASC");
             if (errorInfoCursor != null && errorInfoCursor.getCount() > 0) {
-                errorInfoCursor.moveToNext();
-                ErrorInfo errorInfo = new ErrorInfo(errorInfoCursor.getInt(0), errorInfoCursor.getString(1), errorInfoCursor.getInt(2), user_id);
-                errorInfoList.add(errorInfo);
+                while (errorInfoCursor.moveToNext()){
+                    ErrorInfo errorInfo = new ErrorInfo(errorInfoCursor.getInt(0), errorInfoCursor.getString(1), errorInfoCursor.getInt(2), user_id);
+                    errorInfoList.add(errorInfo);
+                }
             }
             if (errorInfoCursor != null) {
                 errorInfoCursor.close();
@@ -321,5 +322,22 @@ public class DataBaseProvider implements DataProvider {
         //}
         db.close();
         return userInfo;
+    }
+
+    public List<ErrorInfo> getErrorList() {
+        SQLiteDatabase db = mistakeBookDataBase.getWritableDatabase();
+        Cursor errorInfoCursor = db.query("errorInfo", new String[]{"_id","error_title","type_id","user_id","count(error_title)"}, null, null, "error_title", null, "count(error_title) DESC");
+        List<ErrorInfo> errorInfoList = new ArrayList<>();
+        if (errorInfoCursor != null && errorInfoCursor.getCount() > 0) {
+            while (errorInfoCursor.moveToNext()) {
+                ErrorInfo errorInfo = new ErrorInfo(errorInfoCursor.getInt(0), errorInfoCursor.getString(1), errorInfoCursor.getInt(2), errorInfoCursor.getInt(3));
+                errorInfoList.add(errorInfo);
+            }
+        }
+        if (errorInfoCursor != null) {
+            errorInfoCursor.close();
+        }
+        db.close();
+        return errorInfoList;
     }
 }

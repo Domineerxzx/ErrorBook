@@ -2,8 +2,10 @@ package com.domineer.triplebro.mistakebook.controllers;
 
 import android.content.Context;
 
+import com.domineer.triplebro.mistakebook.models.ErrorInfo;
 import com.domineer.triplebro.mistakebook.providers.DataBaseProvider;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,5 +26,9 @@ public class AdminManagerController {
 
     public Map<Integer, Integer> getUserInfoList() {
         return dataBaseProvider.getUserInfoList();
+    }
+
+    public List<ErrorInfo> getErrorList() {
+        return dataBaseProvider.getErrorList();
     }
 }

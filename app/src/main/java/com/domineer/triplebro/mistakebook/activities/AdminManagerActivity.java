@@ -13,7 +13,6 @@ public class AdminManagerActivity extends Activity implements View.OnClickListen
 
     private TextView tv_error_write;
     private TextView tv_error;
-    private TextView tv_change_answer;
     private ImageView iv_close_admin_manager;
 
     @Override
@@ -28,7 +27,6 @@ public class AdminManagerActivity extends Activity implements View.OnClickListen
     private void initView() {
         tv_error_write = (TextView) findViewById(R.id.tv_error_write);
         tv_error = (TextView) findViewById(R.id.tv_error);
-        tv_change_answer = (TextView) findViewById(R.id.tv_change_answer);
         iv_close_admin_manager = (ImageView) findViewById(R.id.iv_close_admin_manager);
     }
 
@@ -39,7 +37,6 @@ public class AdminManagerActivity extends Activity implements View.OnClickListen
     private void setOnClickListener() {
         tv_error.setOnClickListener(this);
         tv_error_write.setOnClickListener(this);
-        tv_change_answer.setOnClickListener(this);
     }
 
     @Override
@@ -53,7 +50,6 @@ public class AdminManagerActivity extends Activity implements View.OnClickListen
                 startActivity(error_write);
                 break;
             case R.id.tv_error:
-            case R.id.tv_change_answer:
                 Intent error = new Intent(this, ErrorActivity.class);
                 startActivity(error);
                 break;

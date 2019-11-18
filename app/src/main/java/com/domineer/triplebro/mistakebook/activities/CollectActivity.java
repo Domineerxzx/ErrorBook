@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import java.util.List;
 public class CollectActivity extends Activity implements View.OnClickListener {
 
     private ImageView iv_close_error_list;
-    private MyListView lv_error_list;
+    private ListView lv_error_list;
     private RelativeLayout rl_image_large;
     private ImageView iv_image_large;
     private ImageView iv_close_image_large;
@@ -41,7 +42,7 @@ public class CollectActivity extends Activity implements View.OnClickListener {
 
     private void initView() {
         iv_close_collect = (ImageView) findViewById(R.id.iv_close_collect);
-        lv_error_list = (MyListView) findViewById(R.id.lv_error_list);
+        lv_error_list = (ListView) findViewById(R.id.lv_error_list);
         rl_image_large = (RelativeLayout) findViewById(R.id.rl_image_large);
         iv_image_large = (ImageView) findViewById(R.id.iv_image_large);
         iv_close_image_large = (ImageView) findViewById(R.id.iv_close_image_large);

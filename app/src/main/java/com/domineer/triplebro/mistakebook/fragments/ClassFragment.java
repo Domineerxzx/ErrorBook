@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class ClassFragment extends Fragment implements View.OnClickListener {
     private ClassController classController;
     private UserInfo user;
     private TextView tv_title;
-    private MyListView lv_error_list;
+    private ListView lv_error_list;
     private RelativeLayout rl_image_large;
     private ImageView iv_image_large;
     private ImageView iv_close_image_large;
@@ -61,7 +62,7 @@ public class ClassFragment extends Fragment implements View.OnClickListener {
 
     private void initView() {
         tv_title = (TextView) fragment_class.findViewById(R.id.tv_title);
-        lv_error_list = (MyListView) fragment_class.findViewById(R.id.lv_error_list);
+        lv_error_list = (ListView) fragment_class.findViewById(R.id.lv_error_list);
         rl_image_large = (RelativeLayout) fragment_class.findViewById(R.id.rl_image_large);
         iv_image_large = (ImageView) fragment_class.findViewById(R.id.iv_image_large);
         iv_close_image_large = (ImageView) fragment_class.findViewById(R.id.iv_close_image_large);
@@ -83,7 +84,8 @@ public class ClassFragment extends Fragment implements View.OnClickListener {
         if (classNumber != null && classNumber.length() != 0 && gradeNumber != null && gradeNumber.length() != 0) {
             tv_title.setText(gradeNumber + classNumber);
         } else {
-            ChooseClassDialogUtils.showDialog(this, user_id,tv_title);
+            ChooseClassDialogUtils.showDialog(this, user_id,tv_title,lv_error_list,rl_image_large,iv_image_large,iv_close_image_large);
+            return;
         }
         errorInfoList = classController.getErrorListByClass(classNumber,gradeNumber);
         classAdapter = new ClassAdapter(getActivity(), errorInfoList);
@@ -99,7 +101,7 @@ public class ClassFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.iv_setting:
-                ChooseClassDialogUtils.showDialog(this, user_id, tv_title);
+                ChooseClassDialogUtils.showDialog(this, user_id, tv_title, lv_error_list, rl_image_large, iv_image_large, iv_close_image_large);
                 break;
         }
     }

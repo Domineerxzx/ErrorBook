@@ -36,7 +36,7 @@
             android:background="@color/colorLine" />
     </RelativeLayout>
 
-    <com.domineer.triplebro.mistakebook.views.MyListView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/lv_error_list"
